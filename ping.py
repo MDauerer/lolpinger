@@ -33,24 +33,23 @@ def colorize(ping):
 
 #average ping
 avg_ping = float(response_list.rtt_avg_ms)
-avg_print = colorText("Your average Ping to LOL EUW is: " + "[[" + colorize(avg_ping) + "]]" + str(avg_ping) + "[[white]]")
+avg_print = colorText("Your average Ping to LOL EUW is: " + "[[" + colorize(avg_ping) + "]]" + str(avg_ping) + "[[white]]" + " ms")
 
 #maxp ping
 max_ping = float(response_list.rtt_max_ms)
-max_print = colorText("Your maximum Ping to LOL EUW is: " + "[[" + colorize(max_ping) + "]]" + str(max_ping) + "[[white]]")
+max_print = colorText("Your maximum Ping to LOL EUW is: " + "[[" + colorize(max_ping) + "]]" + str(max_ping) + "[[white]]" + " ms")
 
 #lowest ping
 min_ping = float(response_list.rtt_min_ms)
-min_print = colorText("Your minimum Ping to LOL EUW is: " + "[[" + colorize(min_ping) + "]]" + str(min_ping) + "[[white]]")
+min_print = colorText("Your minimum Ping to LOL EUW is: " + "[[" + colorize(min_ping) + "]]" + str(min_ping) + "[[white]]" + " ms")
 
 
 
 
 
-print("Your average ping to LOL EUW is: " + avg_print + " ms")
-print("Your highest ping to LOL EUW is: " + max_print + " ms")
-print("Your lowest ping to LOL EUW is: " + min_print + " ms")
-
+print(avg_print)
+print(max_print)
+print(min_print)
 
 wait = input ('Press Enter to continue')
 

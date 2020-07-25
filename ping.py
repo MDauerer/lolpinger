@@ -1,7 +1,5 @@
 from pythonping import ping
-import os
 
-os.system("cls")
 
 COLORS = {
 "black":"\u001b[30;1m",
@@ -24,57 +22,36 @@ def colorText(text):
 
 response_list = ping('104.160.141.3', size = 40, count = 20)
 
+def colorize(ping):
+    if float(ping) < 50:
+        return "green"
+    elif float(ping) > 50 and float(ping) < 100:
+        return "yellow"
+    else:
+        return "red"
+
+
 #average ping
-avg_ping = str(response_list.rtt_avg_ms)
-avg_ping_color = "white"
-
-if float(avg_ping) < 50:
-    avg_ping_color = "green"
-
-elif float(avg_ping) > 50 and float(avg_ping) < 100:
-    avg_ping_color = "yellow"
-
-else:
-    avg_ping_color = "red"
-
-avg_ping = "[[" + avg_ping_color + "]]" + avg_ping + "[[white]]"
-colored_avg_ping = colorText(avg_ping)
-
+avg_ping = float(response_list.rtt_avg_ms)
+avg_print = colorText("Your average Ping to LOL EUW is: " + "[[" + colorize(avg_ping) + "]]" + str(avg_ping) + "[[white]]")
 
 #maxp ping
-max_ping = str(response_list.rtt_max_ms)
-max_ping_color = "white"
-
-if float(max_ping) < 50:
-    max_ping_color = "green"
-
-elif float(max_ping) > 50 and float(max_ping) < 100:
-    max_ping_color = "yellow"
-
-else:
-    max_ping_color = "red"
-
-max_ping = "[[" + max_ping_color + "]]" + max_ping + "[[white]]"
-colored_max_ping = colorText(max_ping)
+max_ping = float(response_list.rtt_max_ms)
+max_print = colorText("Your maximum Ping to LOL EUW is: " + "[[" + colorize(max_ping) + "]]" + str(max_ping) + "[[white]]")
 
 #lowest ping
-min_ping = str(response_list.rtt_min_ms)
-min_ping_color = "white"
-
-if float(min_ping) < 50:
-    min_ping_color = "green"
-
-elif float(min_ping) > 50 and float(min_ping) < 100:
-    min_ping_color = "yellow"
-
-else:
-    min_ping_color = "red"
-
-min_ping = "[[" + min_ping_color + "]]" + min_ping + "[[white]]"
-colored_min_ping = colorText(min_ping)
+min_ping = float(response_list.rtt_min_ms)
+min_print = colorText("Your minimum Ping to LOL EUW is: " + "[[" + colorize(min_ping) + "]]" + str(min_ping) + "[[white]]")
 
 
-print("Your average ping to LOL EUW is: " + colored_avg_ping + " ms")
-print("Your highest ping to LOL EUW is: " + colored_max_ping + " ms")
-print("Your lowest ping to LOL EUW is: " + colored_min_ping + " ms")
+
+
+
+print(colorText("Your average ping to LOL EUW is: " + avg_print + " ms"))
+print("Your highest ping to LOL EUW is: " + max_print + " ms")
+print("Your lowest ping to LOL EUW is: " + min_print + " ms")
+
+
 wait = input ('Press Enter to continue')
+
+

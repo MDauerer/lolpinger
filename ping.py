@@ -47,7 +47,7 @@ min_print = colorText("Your minimum Ping to LOL EUW is: " + "[[" + colorize(min_
 
 
 
-print(colorText("Your average ping to LOL EUW is: " + avg_print + " ms"))
+print("Your average ping to LOL EUW is: " + avg_print + " ms"))
 print("Your highest ping to LOL EUW is: " + max_print + " ms")
 print("Your lowest ping to LOL EUW is: " + min_print + " ms")
 
